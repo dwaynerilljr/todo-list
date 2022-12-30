@@ -6,7 +6,10 @@ const generateTemplate = todo => {
     const html = `
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span>${todo}</span>
-            <i class="far fa-trash-alt delete"></i>
+            <div class="d-flex gap-2">
+                <i class="far fa-trash-alt delete"></i>
+                <i class="fa-solid fa-check finished"></i>
+            </div>
         </li>
     `;
 
@@ -26,7 +29,9 @@ addForm.addEventListener('submit', e => {
 
 list.addEventListener('click', e => {
     if(e.target.classList.contains('delete')) {
-        e.target.parentElement.remove();
+        e.target.parentElement.parentElement.remove();
+    } else if (e.target.classList.contains('finished')) {
+        e.target.parentElement.parentElement.classList.add('complete')
     }
 });
 

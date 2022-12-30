@@ -27,3 +27,11 @@ input[type=text]:focus {
 .filtered {
     display: none !important;
 }
+
+.finished {
+    cursor: pointer;
+}
+
+.complete span {
+    text-decoration: line-through !important;
+}
